@@ -41,17 +41,17 @@ import TheWelcome from './components/TheWelcome.vue'
   methods: {
     async listadoPersonas() {
       try {
-        const response = await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/');
+        const response = await fetch('http://127.0.0.1:8000/api/v1/personas');
         this.personas = await response.json();
       }
       catch (error) {
         console.error(error);
       }
     },
-    
+
     async agregarPersona(persona) {
       try {
-        const response = await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/', {
+        const response = await fetch('http://127.0.0.1:8000/api/v1/personas/', {
           method: 'POST',
           body: JSON.stringify(persona),
           headers: { 'Content-type': 'application/json; charset=UTF-8' },
@@ -66,7 +66,7 @@ import TheWelcome from './components/TheWelcome.vue'
 
     async eliminarPersona(persona_id) {
       try {
-        await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/'+persona_id+'/', 
+        await fetch('http://127.0.0.1:8000/api/v1/personas/'+persona_id+'/', 
         {
           method: "DELETE"
         });
@@ -79,7 +79,7 @@ import TheWelcome from './components/TheWelcome.vue'
 
    async actualizarPersona(id, personaActualizada) {
       try {
-        const response = await fetch('https://my-json-server.typicode.com/rmarabini/people/personas/'+personaActualizada.id+'/', 
+        const response = await fetch('http://127.0.0.1:8000/api/v1/personas/'+personaActualizada.id+'/', 
         {
           method: 'PUT',
           body: JSON.stringify(personaActualizada),
