@@ -27,8 +27,8 @@ import TheWelcome from './components/TheWelcome.vue'
   import TablaPersonas from '@/components/TablaPersonas.vue'
   import FormularioPersona from '@/components/FormularioPersona.vue'
   //const myVar = import.meta.env.VITE_DJANGOURL;
-  const myVar = 'https://myseconddjango.onrender.com/api/v1/personas'
-  //const myVar = 'http://127.0.0.1:8000/api/v1/personas'
+  const myVar = 'https://myseconddjango.onrender.com/api/v1/personas/'
+  //const myVar = 'http://127.0.0.1:8000/api/v1/personas/'
 
 
   export default {
