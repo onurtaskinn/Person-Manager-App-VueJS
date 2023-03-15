@@ -26,6 +26,9 @@ import TheWelcome from './components/TheWelcome.vue'
 <script>
   import TablaPersonas from '@/components/TablaPersonas.vue'
   import FormularioPersona from '@/components/FormularioPersona.vue'
+  //const myVar = import.meta.env.VITE_DJANGOURL;
+  const myVar = 'https://myseconddjango.onrender.com/api/v1/personas'
+
   export default {
     name: 'app',
     components: {
@@ -41,7 +44,7 @@ import TheWelcome from './components/TheWelcome.vue'
   methods: {
     async listadoPersonas() {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/personas');
+        const response = await fetch(myVar);
         this.personas = await response.json();
       }
       catch (error) {
@@ -51,7 +54,7 @@ import TheWelcome from './components/TheWelcome.vue'
 
     async agregarPersona(persona) {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/personas/', {
+        const response = await fetch(myVar, {
           method: 'POST',
           body: JSON.stringify(persona),
           headers: { 'Content-type': 'application/json; charset=UTF-8' },
@@ -66,7 +69,7 @@ import TheWelcome from './components/TheWelcome.vue'
 
     async eliminarPersona(persona_id) {
       try {
-        await fetch('http://127.0.0.1:8000/api/v1/personas/'+persona_id+'/', 
+        await fetch(myVar+persona_id+'/', 
         {
           method: "DELETE"
         });
@@ -79,7 +82,7 @@ import TheWelcome from './components/TheWelcome.vue'
 
    async actualizarPersona(id, personaActualizada) {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/personas/'+personaActualizada.id+'/', 
+        const response = await fetch(myVar+personaActualizada.id+'/', 
         {
           method: 'PUT',
           body: JSON.stringify(personaActualizada),
