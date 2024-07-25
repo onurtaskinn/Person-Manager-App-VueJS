@@ -14,6 +14,8 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ```sh
 npm install
+
+npm audit fix
 ```
 
 ### Compile and Hot-Reload for Development
